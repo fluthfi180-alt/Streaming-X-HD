@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIVE+ Streaming</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(180deg,#020617 0%,#0f172a 100%);
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* Background Glow */
+body::before{
+    content:'';
+    position:fixed;
+    width:300px;
+    height:300px;
+    background:#ef4444;
+    filter:blur(120px);
+    top:-100px;
+    left:-100px;
+    opacity:.15;
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:300px;
+    height:300px;
+    background:#2563eb;
+    filter:blur(120px);
+    bottom:-100px;
+    right:-100px;
+    opacity:.15;
+    z-index:-1;
+}
+
+/* Navbar */
+nav{
+    display:flex;
+    justify-content:center;
+    padding:24px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:28px;
+    font-weight:800;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    background:#ef4444;
+    border-radius:50%;
+    box-shadow:0 0 15px #ef4444;
+}
+
+/* Hero */
+.hero{
+    min-height:calc(100vh - 140px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.content{
+    width:100%;
+    max-width:900px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(239,68,68,.15);
+    border:1px solid rgba(239,68,68,.4);
+    color:#ff6b6b;
+    padding:8px 18px;
+    border-radius:999px;
+    margin-bottom:20px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* Thumbnail */
+.thumbnail{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    margin-bottom:25px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.thumbnail img{
+    width:100%;
+    display:block;
+    aspect-ratio:16/9;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.7),
+        rgba(0,0,0,.1)
+    );
+}
+
+/* YouTube Play Button */
+.play-btn{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:90px;
+    height:65px;
+    background:#ff0000;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 30px rgba(255,0,0,.45);
+}
+
+.play-btn span{
+    width:0;
+    height:0;
+    border-top:12px solid transparent;
+    border-bottom:12px solid transparent;
+    border-left:20px solid white;
+    margin-left:5px;
+}
+
+.play-btn:hover{
+    transform:translate(-50%,-50%) scale(1.08);
+    background:#ff1a1a;
+    box-shadow:0 15px 40px rgba(255,0,0,.6);
+}
+
+/* Server Buttons */
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.button{
+    padding:12px 24px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    background:#1e293b;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.button:hover{
+    transform:translateY(-3px);
+    background:#334155;
+}
+
+.active{
+    background:#ef4444;
+    box-shadow:0 0 20px rgba(239,68,68,.4);
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:25px 20px;
+    color:#64748b;
+    font-size:14px;
+    border-top:1px solid rgba(255,255,255,.05);
+    margin-top:40px;
+}
+
+footer span{
+    color:#ef4444;
+    font-weight:600;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .play-btn{
+        width:70px;
+        height:50px;
+        border-radius:14px;
+    }
+
+    .play-btn span{
+        border-top:9px solid transparent;
+        border-bottom:9px solid transparent;
+        border-left:16px solid white;
+    }
+
+    .button{
+        width:100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <span class="dot"></span>
+        LIVE+
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="content">
+
+        <div class="badge">
+            🔴 LIVE STREAMING
+        </div>
+
+        <div class="thumbnail">
+            <img src="YOUR_THUMBNAIL.jpg" alt="Thumbnail">
+
+            <div class="overlay"></div>
+
+            <div class="play-btn">
+                <span></span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="https://server1.com" class="button active">
+                Server 1
+            </a>
+
+            <a href="https://server2.com" class="button">
+                Server 2
+            </a>
+
+            <a href="https://server3.com" class="button">
+                Server 3
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 <span>LIVE+ Streaming</span>. All Rights Reserved.
+</footer>
+
+<!-- Tempel script Histats tepat di bawah ini -->
+
+<!-- Histats START -->
+<!-- Paste kode Histats Anda di sini -->
+<!-- Histats END -->
+
+</body>
+</html>
